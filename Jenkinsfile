@@ -9,5 +9,13 @@ pipeline {
                    sh "echo ${Project_Name}"
                 }
             }
+            stage(two) {
+            enviroment  {
+                           Project_Name = "Todo"
+                           }
+                         steps {
+                                sh "echo ${Project_Name}"
+                                }
+                        }
         }
     }
