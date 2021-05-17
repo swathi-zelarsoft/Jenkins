@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment {
+    Project_Name = "Roboshop"
+    }
         stages{
-            stage(Hello){
+            stage(one){
                 steps {
-                    echo "Hello"
+                   sh "ech0 ${Project_Name}"
                 }
             }
         }
