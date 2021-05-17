@@ -19,6 +19,9 @@ pipeline {
 
         stages{
             stage(one){
+            when {
+                       branch 'production'
+                      }
                 steps {
                    sh "echo ${Project_Name}"
                    sh "env"
