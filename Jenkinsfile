@@ -1,5 +1,8 @@
 pipeline {
     agent any
+     options {
+     disableConcurrentBuilds()
+     }
     environment {
     Project_Name = "Roboshop"
     UBUNTU_SSH_CRED = credentials('UBUNTU-SSH')
