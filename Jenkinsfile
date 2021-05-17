@@ -2,11 +2,13 @@ pipeline {
     agent any
     environment {
     Project_Name = "Roboshop"
+    UBUNTU_SSH_CRED = credentials('UBUNTU-SSH')
     }
         stages{
             stage(one){
                 steps {
                    sh "echo ${Project_Name}"
+                   sh "env"
                 }
             }
             stage(two){
