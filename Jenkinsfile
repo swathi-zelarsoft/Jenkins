@@ -10,7 +10,7 @@ pipeline {
                 }
             }
             stage(two){
-            enviroment {
+            environment {
             Project_Name = "Todo"
                          }
                steps {
