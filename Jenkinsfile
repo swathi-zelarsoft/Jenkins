@@ -8,6 +8,7 @@ pipeline {
 //    UBUNTU_SSH_CRED = credentials('UBUNTU-SSH')
     }
     triggers { cron('H */4 * * 1-5') }
+    tools{ maven 'mvn-3.6'}
     parameters {
          string(name: 'COMPONENT', defaultValue: '', description: 'Which Component?')
          text(name: 'COMMENT', defaultValue: '', description: 'Write Comment about the Job why are you running it.')
