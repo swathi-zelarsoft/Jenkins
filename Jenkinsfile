@@ -6,7 +6,7 @@ pipeline {
         stages{
             stage(one){
                 steps {
-                   sh "ech0 ${Project_Name}"
+                   sh "echo ${Project_Name}"
                 }
             }
         }
