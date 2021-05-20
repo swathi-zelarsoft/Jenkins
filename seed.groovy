@@ -65,7 +65,7 @@ pipelineJob("CI-Pipelines/users-ci"){
             }
 
 
-            'scriptPath'('jenkinsscript')
+            'scriptPath'('Jenkinsscript')
             'lightweight'(true)
         }
     }
