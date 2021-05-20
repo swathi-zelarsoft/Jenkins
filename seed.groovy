@@ -19,7 +19,7 @@ pipelineJob("CI-Pipelines/frontend-ci"){
             }
 
 
-            'scriptPath'('Jenkinsfile')
+            'scriptPath'('jenkins')
             'lightweight'(true)
         }
     }
@@ -42,7 +42,7 @@ pipelineJob("CI-Pipelines/login-ci"){
             }
 
 
-            'scriptPath'('Jenkinsfile')
+            'scriptPath'('jenkinsscript')
             'lightweight'(true)
         }
     }
@@ -65,7 +65,7 @@ pipelineJob("CI-Pipelines/users-ci"){
             }
 
 
-            'scriptPath'('Jenkinsfile')
+            'scriptPath'('jenkinsscript')
             'lightweight'(true)
         }
     }
@@ -89,7 +89,7 @@ pipelineJob("CI-Pipelines/todo-ci"){
             }
 
 
-            'scriptPath'('Jenkinsfile')
+            'scriptPath'('jenkinsscript)
             'lightweight'(true)
         }
     }
