@@ -28,8 +28,7 @@ def code_build(APP_TYPE, COMPONENT) {
         print execute_com
     }
     elseif(APP_TYPE == "GO_LANG") {
-        command "go get github.com/dgrijalva/jwt-go && go get github.com/labstack && go get github.com/labstack/echo/middleware &&' +
-                'go get github.com/labstack/gommon/log && go get github.com/openzipkin/zipkin-go && go get github.com/openzipkin/zipkin-go/middleware/http &&go get  github.com/openzipkin/zipkin-go/reporter/http && go build"
+        command "go get github.com/dgrijalva/jwt-go && go get github.com/labstack && go get github.com/labstack/echo/middleware && go get github.com/labstack/gommon/log && go get github.com/openzipkin/zipkin-go && go get github.com/openzipkin/zipkin-go/middleware/http && go get github.com/openzipkin/zipkin-go/reporter/http && go build"
         def execute_com = sh(returnStdout: true, script: command)
         print execute_com
     }
