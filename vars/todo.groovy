@@ -98,7 +98,7 @@ def call(Map params = [:]) {
             }
         }
         stage('Prepare Artifacts-todo'){
-            when { environment name: 'APP_TYPE', value: 'JAVA'}
+            when { environment name: 'APP_TYPE', value: 'NODEJS'}
             steps {
                 sh '''
         zip -r ${COMPONENT}.zip node_modules server.js
@@ -108,7 +108,7 @@ def call(Map params = [:]) {
             stage('upload artifacts') {
                 steps {
                     sh '''
-        curl -v -u admin:admin123 --upload-file /home/ubuntu/workspace/CI-Pipelines/${COMPONENT}-ci/${COMPONENT}.zip http://${NEXUS_IP}/repository/${COMPONENT}/${COMPONENT}.zip
+        curl -v -u admin:admin123 --upload-file /home/ubuntu/workspace/CI-Pipelines/${COMPONENT}-ci/${COMPONENT}.zip http://${NEXUS_IP}:8081/repository/${COMPONENT}/${COMPONENT}.zip
         '''
                 }
             }
