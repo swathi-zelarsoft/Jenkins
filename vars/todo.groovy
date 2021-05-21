@@ -21,7 +21,7 @@ def call(Map params = [:]) {
     stages {
             stage("Download dependencies") {
                 when {
-                    anyOf{ environment name: 'APP_TYPE', value: 'NGINX' }
+                    anyOf { environment name: 'APP_TYPE', value: 'NGINX' }
                             { environment name: 'APP_TYPE', value: 'JAVA' }
                 }
                 steps {
