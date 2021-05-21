@@ -22,7 +22,7 @@ def call(Map params = [:]) {
             stage("Download dependencies") {
                 when {
                     anyOf { environment name: 'APP_TYPE', value: 'NGINX'
-                            environment name: 'APP_TYPE', value: 'JAVA' }
+                            environment name: 'APP_TYPE', value: 'NODEJS' }
                 }
                 steps {
                     sh '''
