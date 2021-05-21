@@ -26,6 +26,7 @@ def call(Map params = [:]) {
                         build.demos 'n1'
                     }
                 }
+            }
             stage('code build and install dependencies') {
                 steps {
                     script {
