@@ -11,10 +11,6 @@ def call(Map params = [:]) {
             label "${args.SLAVE_LABEL}"
         }
 
-        triggers {
-            pollSCM('* * * * 1-5')
-        }
-
         environment {
             COMPONENT     = "${args.COMPONENT}"
             NEXUS_IP      = "${args.NEXUS_IP}"
@@ -87,7 +83,7 @@ def call(Map params = [:]) {
             when { environment name: 'APP_TYPE', value: 'JAVA'}
 
             steps {
-                sh '''
+                sh '''  
         mvn clean package
         '''
             }
