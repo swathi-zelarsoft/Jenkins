@@ -1,5 +1,5 @@
 def make_artifacts(APP_TYPE, COMPONENT) {
-    if (APP_TYPE == "NGINX") {
+    if(APP_TYPE == "NGINX") {
         command 'zip -r ${COMPONENT}.zip dist node_modules'
         def execute_com = sh(returnStdout: true, script: command)
         print execute_com
@@ -15,14 +15,14 @@ def make_artifacts(APP_TYPE, COMPONENT) {
         print execute_com
     }
     elseif(APP_TYPE == "NODEJS") {
-        command '  zip -r ${COMPONENT}.zip node_modules server.js'
+        command 'zip -r ${COMPONENT}.zip node_modules server.js'
         def execute_com = sh(returnStdout: true, script: command)
         print execute_com
     }
 }
 
 def code_build(APP_TYPE, COMPONENT) {
-    if (APP_TYPE == "NGINX") {
+    if(APP_TYPE == "NGINX") {
         command 'npm install && npm run build'
         def execute_com = sh(returnStdout: true, script: command)
         print execute_com
@@ -46,6 +46,6 @@ def code_build(APP_TYPE, COMPONENT) {
 }
 
 def nexus(COMPONENT) {
-    command = "curl -f -v -u admin:admin123 --upload-file ${FILENAME} http://172.31.14.124:8081/repository/${COMPONENT}/${FILENAME}"
+    command = "curl -f -v -u admin:admin123 --upload-file ${FILENAME} http://${NEXUS_IP}:8081/repository/${COMPONENT}/${FILENAME}"
     def execute_state=sh(returnStdout: true, script: command)
 }
