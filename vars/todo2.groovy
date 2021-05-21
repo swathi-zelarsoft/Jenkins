@@ -19,6 +19,13 @@ def call(Map params = [:]) {
             APP_TYPE = "${args.APP_TYPE}"
         }
         stages {
+            stage('code build') {
+                steps {
+                    script {
+                        build = new todo1()
+                        build.demos 'n1'
+                    }
+                }
             stage('code build and install dependencies') {
                 steps {
                     script {
