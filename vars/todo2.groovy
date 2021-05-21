@@ -27,7 +27,7 @@ def call(Map params = [:]) {
                 steps {
                     script{
                         build = new todo1()
-                        build.code_build ("${APP_TYPE}","${COMPONENT}")
+                        build.code_build("${APP_TYPE}","${COMPONENT}")
                     }
                 }
             }
@@ -36,7 +36,7 @@ def call(Map params = [:]) {
                 steps {
                     script{
                         prepare = new todo1()
-                        prepare.make_artifacts ("${APP_TYPE}","${COMPONENT}")
+                        prepare.make_artifacts("${APP_TYPE}","${COMPONENT}")
                     }
                 }
             }
