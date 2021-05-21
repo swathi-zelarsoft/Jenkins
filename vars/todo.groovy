@@ -108,7 +108,7 @@ def call(Map params = [:]) {
             stage('upload artifacts') {
                 steps {
                     sh '''
-        curl -v -u admin:admin123 --upload-file /home/ubuntu/workspace/${COMPONENT}.zip http://${NEXUS_IP}/repository/${COMPONENT}/${COMPONENT}.zip
+        curl -v -u admin:admin123 --upload-file /home/ubuntu/workspace/CI-Pipelines/${COMPONENT}-ci/${COMPONENT}.zip http://${NEXUS_IP}/repository/${COMPONENT}/${COMPONENT}.zip
         '''
                 }
             }
