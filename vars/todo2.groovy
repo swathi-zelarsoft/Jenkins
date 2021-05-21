@@ -23,36 +23,29 @@ def call(Map params = [:]) {
             APP_TYPE = "${args.APP_TYPE}"
         }
         stages {
-            stage("Download dependencies") {
-                when {
-                    anyOf { environment name: 'APP_TYPE', value: 'NGINX' }
-                            { environment name: 'APP_TYPE', value: 'JAVA' }
-                }
+            stage('code build and install dependencies') {
                 steps {
-                    sh '''
-              npm install
-              '''
+                    script{
+                        build = new todo1()
+                        build.code_build ("${APP_TYPE}","${COMPONENT}")
+                    }
                 }
-
             }
-            stage("Making a build") {
-                when { environment name: 'APP_TYPE', value: 'NGINX' }
-                steps {
-                    sh '''
-                   npm run build
-                   '''
-                }
 
-            }
             stage('Prepare Artifacts') {
                 steps {
                     script{
                         prepare = new todo1()
                         prepare.make_artifacts ("${APP_TYPE}","${COMPONENT}")
                     }
-                    sh '''
-           ls
-        '''
+                }
+            }
+            stage('Upload Artifacts') {
+                steps {
+                    script {
+                        upload = new todo1()
+                        upload.nexus(COMPONENT)
+                    }
                 }
             }
         }
