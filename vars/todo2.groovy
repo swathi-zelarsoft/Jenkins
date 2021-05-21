@@ -23,7 +23,7 @@ def call(Map params = [:]) {
                 steps {
                     script {
                         build = new todo1()
-                        build.demos 'n1'
+                        build.demos 'new'
                     }
                 }
             }

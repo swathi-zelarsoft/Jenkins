@@ -49,6 +49,6 @@ def nexus(COMPONENT) {
     def execute_state=sh(returnStdout: true, script: command)
 }
 
-def demos(new){
+def demos(n1){
     print 'Demo'
 }
