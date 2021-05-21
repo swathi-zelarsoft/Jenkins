@@ -89,7 +89,7 @@ pipelineJob("CI-Pipelines/todo-ci"){
             }
 
 
-            'scriptPath'('Jenkinsfilet')
+            'scriptPath'('Jenkinsfile')
             'lightweight'(true)
         }
     }
