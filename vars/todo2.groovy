@@ -23,7 +23,7 @@ def call(Map params = [:]) {
                 steps {
                     script {
                         build = new todo1()
-                        build.code_build ("${COMPONENT}")
+                        build.code_build 'frontend'
                     }
                 }
             }
