@@ -1,21 +1,21 @@
 def make_artifacts(APP_TYPE, COMPONENT) {
     if(APP_TYPE == "NGINX") {
-        command "zip -r ${COMPONENT}.zip dist node_modules"
+        command = "zip -r ${COMPONENT}.zip dist node_modules"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
     else if(APP_TYPE == "GO_LANG") {
-        command "zip -r ${COMPONENT}.zip login-ci"
+        command = "zip -r ${COMPONENT}.zip login-ci"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
     else if(APP_TYPE == "JAVA") {
-        command "cp target/*.jar ${COMPONENT}.jar && zip -r ${COMPONENT}.zip ${COMPONENT}.jar"
+        command = "cp target/*.jar ${COMPONENT}.jar && zip -r ${COMPONENT}.zip ${COMPONENT}.jar"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
     else if(APP_TYPE == "NODEJS") {
-        command "zip -r ${COMPONENT}.zip node_modules server.js"
+        command = "zip -r ${COMPONENT}.zip node_modules server.js"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
@@ -23,22 +23,22 @@ def make_artifacts(APP_TYPE, COMPONENT) {
 
 def code_build(APP_TYPE, COMPONENT) {
     if(APP_TYPE == "NGINX") {
-        command "npm install && npm run build"
+        command = "npm install && npm run build"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
     else if(APP_TYPE == "GO_LANG") {
-        command "go get github.com/dgrijalva/jwt-go && go get github.com/labstack && go get github.com/labstack/echo/middleware && go get github.com/labstack/gommon/log && go get github.com/openzipkin/zipkin-go && go get github.com/openzipkin/zipkin-go/middleware/http && go get github.com/openzipkin/zipkin-go/reporter/http && go build"
+        command = "go get github.com/dgrijalva/jwt-go && go get github.com/labstack && go get github.com/labstack/echo/middleware && go get github.com/labstack/gommon/log && go get github.com/openzipkin/zipkin-go && go get github.com/openzipkin/zipkin-go/middleware/http && go get github.com/openzipkin/zipkin-go/reporter/http && go build"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
     else if(APP_TYPE == "JAVA") {
-        command "mvn clean package"
+        command = "mvn clean package"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
     else if(APP_TYPE == "NODEJS") {
-        command "npm install"
+        command = "npm install"
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
