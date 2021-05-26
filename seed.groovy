@@ -2,88 +2,32 @@ folder('CI-Pipelines') {
     displayName('CI Pipelines')
     description('CI Pipelines')
 }
+def component = ["login", "todo","users","frontend"];
+def count =(component.size()-1)
+for (i in 0..count) {
+    def j=component[i]
 pipelineJob("CI-Pipelines/frontend-ci"){
     configure { flowdefinition ->
-        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
-            'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
-                'userRemoteConfigs' {
-                    'hudson.plugins.git.UserRemoteConfig' {
-                        'url'('https://github.com/swathi-zelarsoft/frontend.git')
-
-                    } }
-                'branches' {
-                    'hudson.plugins.git.BranchSpec' {
-                        'name'('*/main')
-                    }
-                }
+        flowdefinition / 'properties' << 'org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty' {
+        'triggers' {
+            'hudson.triggers.SCMTrigger' {
+                'spec'('*/2 * * * 1-5')
+                'ignorePostCommitHooks'(false)
             }
-
-
-            'scriptPath'('Jenkinsfile')
-            'lightweight'(true)
         }
     }
 
-}
-pipelineJob("CI-Pipelines/login-ci"){
-    configure { flowdefinition ->
         flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
             'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
                 'userRemoteConfigs' {
                     'hudson.plugins.git.UserRemoteConfig' {
-                        'url'('https://github.com/swathi-zelarsoft/login.git')
+                        'url'('https://github.com/swathi-zelarsoft/'+j+'.git')
+                        'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
 
                     } }
                 'branches' {
                     'hudson.plugins.git.BranchSpec' {
-                        'name'('*/main')
-                    }
-                }
-            }
-
-
-            'scriptPath'('Jenkinsfile')
-            'lightweight'(true)
-        }
-    }
-
-}
-pipelineJob("CI-Pipelines/users-ci"){
-    configure { flowdefinition ->
-        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
-            'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
-                'userRemoteConfigs' {
-                    'hudson.plugins.git.UserRemoteConfig' {
-                        'url'('https://github.com/swathi-zelarsoft/users.git')
-
-                    } }
-                'branches' {
-                    'hudson.plugins.git.BranchSpec' {
-                        'name'('*/main')
-                    }
-                }
-            }
-
-
-            'scriptPath'('Jenkinsfile')
-            'lightweight'(true)
-        }
-    }
-
-}
-
-pipelineJob("CI-Pipelines/todo-ci"){
-    configure { flowdefinition ->
-        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
-            'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
-                'userRemoteConfigs' {
-                    'hudson.plugins.git.UserRemoteConfig' {
-                        'url'('https://github.com/swathi-zelarsoft/todo.git')
-
-                    } }
-                'branches' {
-                    'hudson.plugins.git.BranchSpec' {
-                        'name'('*/main')
+                        'name'('*/tags/*')
                     }
                 }
             }
