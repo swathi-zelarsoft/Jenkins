@@ -11,7 +11,7 @@ for (i in 0..count) {
             flowdefinition / 'properties' << 'org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty' {
                 'triggers' {
                     'hudson.triggers.SCMTrigger' {
-                        'spec'('*/2 * * * 1-5')
+                        'spec'('*/4 * * * 1-5')
                         'ignorePostCommitHooks'(false)
                     }
                 }
@@ -21,7 +21,7 @@ for (i in 0..count) {
                 'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
                     'userRemoteConfigs' {
                         'hudson.plugins.git.UserRemoteConfig' {
-                            'url'('https://github.com/swathi-zelarsoft/' + j + '.git')
+                            'url'('https://github.com/swathi-zelarsoft/'+j+'.git')
                             'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
 
                         }
