@@ -1,6 +1,7 @@
 def make_artifacts(APP_TYPE, COMPONENT) {
     if(APP_TYPE == "NGINX") {
-        command = "zip -r ${COMPONENT}.zip dist node_modules"
+        command = "zip -r ../${COMPONENT}.zip *"
+        // zip -r ${COMPONENT} dist node_modules
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
