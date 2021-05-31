@@ -3,7 +3,8 @@ def make_artifacts(APP_TYPE, COMPONENT) {
     def get_branch_exec=sh(returnStdout: true, script: get_branch)
     def FILENAME=COMPONENT+'-'+get_branch_exec+'.zip'
     if(APP_TYPE == "NGINX") {
-        command = "zip -r ${FILENAME} dist node_modules"
+        command = "zip -r ../${FILENAME} *"
+        // zip -r ${FILENAME} dist node_modules
         def execute_com=sh(returnStdout: true, script: command)
         print execute_com
     }
