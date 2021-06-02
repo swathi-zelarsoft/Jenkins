@@ -1,6 +1,5 @@
 def call(Map params = [:]) {
     // Start Default Arguments
-
     args << params
 
     // End Default + Required Arguments
