@@ -19,7 +19,7 @@ def make_artifacts(APP_TYPE, COMPONENT) {
         print execute_com
     }
     else if(APP_TYPE == "NODEJS") {
-        comm = "zip -r ${FILENAME} node_modules server.js"
+        comm = "zip -r ${FILENAME} *"
         def execute_com=sh(returnStdout: true, script: comm)
         print execute_com
     }
