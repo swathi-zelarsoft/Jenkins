@@ -1,0 +1,32 @@
+pipeline {
+    agent {
+        label "ANSIBLE"
+    }
+    parameters {
+            choice(name: 'ENV', choices: ['dev', 'prod' ], description: 'Select Environment')
+            }
+    stages{
+       stage('find the server'){
+          steps{
+           sh 'echo'
+            }
+         }
+       stage('Deploy to dev environment'){
+          when {
+       environment name:'ENV' , value:'dev'
+           }
+           steps{
+               sh 'echo ansible-playbook..'
+             }
+          }
+      stage('Deploy to prod environment'){
+                when {
+             environment name:'ENV' , value:'prod'
+                 }
+                 steps{
+                     sh 'echo ansible-playbook..'
+                   }
+                }
+
+    }
+}

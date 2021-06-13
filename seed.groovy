@@ -57,7 +57,7 @@ for (i in 0..count) {
                         }
                     }
                 }
-                'scriptPath'('Jenkinsfile-Deployment')
+                'scriptPath'('Jenkins-deployment')
                 'lightweight'(true)
             }
         }
