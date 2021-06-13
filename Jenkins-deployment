@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        any
-    }
+    agent any
     parameters {
             choice(name: 'ENV', choices: ['dev', 'prod' ], description: 'Select Environment')
             string(name: 'COMPONENT', defaultValue: '', description: 'Which Component to deploy')
