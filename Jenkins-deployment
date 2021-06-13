@@ -1,10 +1,12 @@
 pipeline {
     agent {
-        label "ANSIBLE"
+        any
     }
     parameters {
             choice(name: 'ENV', choices: ['dev', 'prod' ], description: 'Select Environment')
-            }
+            string(name: 'COMPONENT', defaultValue: '', description: 'Which Component to deploy')
+            string(name: 'VERSION', defaultValue: '', description: 'Which Version of Component to deploy')
+              }
     stages{
        stage('find the server'){
           steps{
