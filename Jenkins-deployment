@@ -25,8 +25,8 @@ pipeline {
           steps{
             git branch: 'main', url: 'https://github.com/swathi-zelarsoft/ansible.git'
            sh '''
-                ansible-playbook -i inv todo.yml -t ${COMPONENT} -e COMPONENT=${COMPONENT} -e ENV=${ENV} -e APP_VERSION=${VERSION} -e ansible_password=${UBUNTU_SSH_PASSWORD}
-              '''
+                ansible-playbook -i inv todo.yml -t ${COMPONENT} -e COMPONENT=${COMPONENT} -e ENV=${ENV} -e APP_VERSION=${VERSION} -e ansible_password=DevOps321
+               '''
              }
           }
       stage('Deploy to prod environment'){
