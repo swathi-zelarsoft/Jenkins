@@ -19,8 +19,7 @@ pipeline {
        environment name:'ENV' , value:'dev'
            }
            steps{
-           sh
-            'echo ansible-playbook'
+           sh 'echo ansible-playbook'
                // ansible-playbook -i inv roboshop.yml -t ${COMPONENT} -e COMPONENT=${COMPONENT} -e ENV=${ENV} -e APP_VERSION=${VERSION} -e ansible_password=${UBUNTU_SSH_PASSWORD}
 
              }
