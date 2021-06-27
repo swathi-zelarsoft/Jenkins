@@ -40,14 +40,14 @@ def call(Map params = [:]) {
                     }
                 }
             }
-   //         stage('Upload Artifacts') {
-     //           steps {
-     //               script {
-     //                   upload = new todo1()
-       //                 upload.nexus(COMPONENT)
-         //           }
-         //       }
-        //    }
+            stage('Upload Artifacts') {
+                steps {
+                    script {
+                        upload = new todo1()
+                        upload.nexus(COMPONENT)
+                    }
+                }
+            }
             stage('Deploy to Dev Env') {
                 steps {
                     script {
